@@ -7,7 +7,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockAppstoreInfoPlatform
     with MockPlatformInterfaceMixin
     implements AppstoreInfoPlatform {
-
   @override
   Future<bool?> presentAppStore({required String appID}) {
     return Future.value(true);

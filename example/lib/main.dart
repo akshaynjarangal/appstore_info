@@ -37,7 +37,8 @@ class _MyAppState extends State<MyApp> {
       await _appstoreInfoPlugin.presentAppStore(appID: '389801252');
       loadingState = false; // Set the loading state back to false
     } on PlatformException {
-      loadingState = false; // Set the loading state back to false in case of an exception
+      loadingState =
+          false; // Set the loading state back to false in case of an exception
     }
   }
 

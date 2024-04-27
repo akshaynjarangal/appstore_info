@@ -14,17 +14,17 @@ class MethodChannelAppstoreInfo extends AppstoreInfoPlatform {
   @override
   Future<bool?> presentAppStore({required String appID}) async {
     try {
-      final isPresented = await methodChannel.invokeMethod<bool>('presentAppStore',{
-      'appID': appID,});
+      final isPresented =
+          await methodChannel.invokeMethod<bool>('presentAppStore', {
+        'appID': appID,
+      });
       return isPresented;
-    }
-    on PlatformException catch (e) {
+    } on PlatformException catch (e) {
       log('Error in presentAppStore: $e');
       return false;
     } catch (e) {
       log('Error in presentAppStore: $e');
       return false;
     }
-    
   }
 }
