@@ -1,6 +1,6 @@
 # appstore_info
 
-A Flutter plugin for retrieving information about apps on the App Store.
+A Flutter plugin for retrieving information about apps on the App Store with in the app.
 
 <p align="center">
 <img src="https://github.com/akshaynjarangal/appstore_info/assets/63861163/d41a15e3-c05a-41df-b4f4-76858364b577" height="400" />
