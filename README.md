@@ -2,6 +2,11 @@
 
 A Flutter plugin for retrieving information about apps on the App Store.
 
+<p align="center">
+<img src="https://github.com/akshaynjarangal/appstore_info/assets/63861163/d41a15e3-c05a-41df-b4f4-76858364b577" height="400" />
+</p>
+
+
 ## Features
 
 - Retrieve app information such as name, description, developer, version, and more.
