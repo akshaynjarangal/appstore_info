@@ -1,6 +1,6 @@
 name: appstore_info
 description: "Present app store with corresponding app details inside the flutter app"
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/akshaynjarangal/appstore_info
 
 environment:
