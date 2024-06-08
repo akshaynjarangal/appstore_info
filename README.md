@@ -20,7 +20,7 @@ Add `appstore_info` to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  appstore_info: ^1.0.0
+  appstore_info: ^1.1.0
 ```
 **Caution: This code will only execute on a real iOS device. It will not work on the iOS simulator.**
 ## Usage
