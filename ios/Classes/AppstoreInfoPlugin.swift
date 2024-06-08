@@ -24,32 +24,33 @@ public class AppstoreInfoPlugin: NSObject, FlutterPlugin, SKStoreProductViewCont
     }
 
     private func presentAppStore(appID: String, result: @escaping FlutterResult) {
-    let storeProductViewController = SKStoreProductViewController()
+        let storeProductViewController = SKStoreProductViewController()
+        storeProductViewController.delegate = self
+        
+        let parameters = [SKStoreProductParameterITunesItemIdentifier: appID]
 
-    let parameters = [SKStoreProductParameterITunesItemIdentifier: appID]
-
-    storeProductViewController.loadProduct(withParameters: parameters) { (loaded, error) -> Void in
-        if loaded {
-            // Product loaded successfully
-            if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
-                // Present SKStoreProductViewController modally
-                rootViewController.present(storeProductViewController, animated: true, completion: nil)
-                result(true)
+        storeProductViewController.loadProduct(withParameters: parameters) { (loaded, error) -> Void in
+            if loaded {
+                if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+                    rootViewController.present(storeProductViewController, animated: true, completion: nil)
+                    result(true)
+                } else {
+                    print("Error: Unable to find root view controller.")
+                    result(false)
+                }
             } else {
-                // Unable to present SKStoreProductViewController
-                print("Error: Unable to find root view controller.")
+                if let error = error {
+                    print("Error loading product: \(error.localizedDescription)")
+                } else {
+                    print("Unknown error loading product.")
+                }
                 result(false)
             }
-        } else {
-            // Product loading failed
-            if let error = error {
-                print("Error loading product: \(error.localizedDescription)")
-            } else {
-                print("Unknown error loading product.")
-            }
-            result(false)
         }
     }
-}
 
+    // Implementing the delegate method
+    public func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
 }
